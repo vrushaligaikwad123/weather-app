@@ -18,7 +18,7 @@ function Home(){
     }
     useEffect(()=>{
         loadWeatherInfo()
-    }, [])
+    }, [{city}])
     return(
         <div>
             <h1 className="app-title">Weather For {city}</h1>
@@ -26,9 +26,9 @@ function Home(){
             className="search-bar" 
             placeholder="Enter City"
             value={city}
-            onChange={(e)=>
-            setCity(e.target.value)
-            }
+            onChange={(e)=>{
+                setCity(e.target.value)
+            }}
             />
             <p className="msg-text"> {message} </p>
             <h1 className="temperature-text">Temperature: {temperature} °C</h1>
